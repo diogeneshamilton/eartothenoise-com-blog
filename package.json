@@ -1,7 +1,7 @@
 {
-	"name": "eleventy-base-blog",
-	"version": "9.0.0",
-	"description": "A starter repository for a blog web site using the Eleventy site generator.",
+	"name": "eartothenoise-blog",
+	"version": "1.0.0",
+	"description": "My blog.",
 	"type": "module",
 	"scripts": {
 		"build": "npx @11ty/eleventy",
@@ -18,9 +18,9 @@
 		"url": "git://github.com/11ty/eleventy-base-blog.git"
 	},
 	"author": {
-		"name": "Zach Leatherman",
-		"email": "zachleatherman@gmail.com",
-		"url": "https://zachleat.com/"
+		"name": "Matt Hamilton",
+		"email": "diogeneshamilton@gmail.com",
+		"url": "https://eartothenoise.com/"
 	},
 	"license": "MIT",
 	"engines": {
