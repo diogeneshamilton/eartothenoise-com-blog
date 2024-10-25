@@ -1,7 +1,9 @@
 ---js
 const eleventyNavigation = {
-	key: "About",
-	order: 3
+	key: "About Me",
+	order: 3,
+    url: "https://eartothenoise.com",
+    permalink: false
 };
 ---
 # About
