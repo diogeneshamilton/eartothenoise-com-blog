@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Blog Title</title>
   <subtitle>This is a longer description about your blog.</subtitle>
-  <link href="https://example.com/eleventy-base-blog/feed/feed.xml" rel="self" />
-  <link href="https://example.com/eleventy-base-blog/" />
+  <link href="https://example.com/eartothenoise-com-blog/feed/feed.xml" rel="self" />
+  <link href="https://example.com/eartothenoise-com-blog/" />
   <updated>2024-10-31T00:00:00Z</updated>
-  <id>https://example.com/eleventy-base-blog/</id>
+  <id>https://example.com/eartothenoise-com-blog/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
     <title>my first post.</title>
-    <link href="https://example.com/eleventy-base-blog/blog/firstpost/" />
+    <link href="https://example.com/eartothenoise-com-blog/blog/firstpost/" />
     <updated>2024-10-31T00:00:00Z</updated>
-    <id>https://example.com/eleventy-base-blog/blog/firstpost/</id>
+    <id>https://example.com/eartothenoise-com-blog/blog/firstpost/</id>
     <content type="html"></content>
   </entry>
 </feed>

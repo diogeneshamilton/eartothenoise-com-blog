@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://eartothenoise.com/eleventy-base-blog/about/</loc>
+		<loc>https://eartothenoise.com/eartothenoise-com-blog/about/</loc>
 		<lastmod>2024-10-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://eartothenoise.com/eleventy-base-blog/blog/</loc>
+		<loc>https://eartothenoise.com/eartothenoise-com-blog/blog/</loc>
 		<lastmod>2024-10-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://eartothenoise.com/eleventy-base-blog/</loc>
+		<loc>https://eartothenoise.com/eartothenoise-com-blog/</loc>
 		<lastmod>2024-10-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://eartothenoise.com/eleventy-base-blog/tags/</loc>
+		<loc>https://eartothenoise.com/eartothenoise-com-blog/tags/</loc>
 		<lastmod>2024-10-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://eartothenoise.com/eleventy-base-blog/feed/feed.xml</loc>
+		<loc>https://eartothenoise.com/eartothenoise-com-blog/feed/feed.xml</loc>
 		<lastmod>2024-10-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://eartothenoise.com/eleventy-base-blog/blog/firstpost/</loc>
+		<loc>https://eartothenoise.com/eartothenoise-com-blog/blog/firstpost/</loc>
 		<lastmod>2024-10-31</lastmod>
 	</url>
 </urlset>
