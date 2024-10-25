@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Eleventy Base Blog v8</title>
-		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
-		<link rel="alternate" href="/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="Eleventy Base Blog v8">
-		<link rel="alternate" href="/eleventy-base-blog/feed/feed.json" type="application/json" title="Eleventy Base Blog v8">
+		<title>eartothenoise blog</title>
+		<meta name="description" content="I am writing about my experiences">
+		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="eartothenoise blog">
+
+		 <meta name="generator" content="Eleventy v3.0.0">
 		
-		<style>* { box-sizing: border-box; }
+		<style>/* This is an arbitrary CSS string added to the bundle */
 /* Defaults */
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
@@ -50,6 +51,10 @@
 /* Global stylesheet */
 * {
 	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
 }
 
 html,
@@ -100,7 +105,8 @@ a[href]:active {
 	color: var(--text-color-link-active);
 }
 
-main {
+main,
+footer {
 	padding: 1rem;
 }
 main :first-child {
@@ -117,9 +123,18 @@ header:after {
 }
 
 .links-nextprev {
-	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
 	border-top: 1px dashed var(--color-gray-20);
 	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
 }
 
 table {
@@ -148,6 +163,7 @@ pre:not([class*="language-"]) {
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
+	overflow-x: auto;
 }
 code {
 	word-break: break-all;
@@ -254,55 +270,39 @@ header {
 }
 .post-metadata time {
 	margin-right: 1em;
-}
-
-/* Direct Links / Markdown Headers */
-.header-anchor {
-	text-decoration: none;
-	font-style: normal;
-	font-size: 1em;
-	margin-left: .1em;
-}
-a[href].header-anchor,
-a[href].header-anchor:visited {
-	color: transparent;
-}
-a[href].header-anchor:focus,
-a[href].header-anchor:hover {
-	text-decoration: underline;
-}
-a[href].header-anchor:focus,
-:hover > a[href].header-anchor {
-	color: #aaa;
-}
-
-h2 + .header-anchor {
-	font-size: 1.5em;
 }</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/eleventy-base-blog/" class="home-link">Eleventy Base Blog v8</a>
+			<a href="/eleventy-base-blog/" class="home-link">eartothenoise blog</a>
 			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 					<li class="nav-item"><a href="/eleventy-base-blog/">Home</a></li>
 					<li class="nav-item"><a href="/eleventy-base-blog/blog/">Archive</a></li>
-					<li class="nav-item"><a href="/eleventy-base-blog/about/" aria-current="page">About Me</a></li>
+					<li class="nav-item"><a href="https://eartothenoise.com">About Me</a></li>
+					<li class="nav-item"><a href="/eleventy-base-blog/feed/feed.xml">Feed</a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<main id="skip">
-			<h1 id="about-me" tabindex="-1">About Me <a class="header-anchor" href="#about-me">#</a></h1>
+			<heading-anchors>
+				
+<h1 id="about">About</h1>
 <p>I am a person that writes stuff.</p>
 
+
+			</heading-anchors>
 		</main>
 
-		<footer></footer>
+		<footer>
+			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
+		</footer>
 
-		<!-- This page `/eleventy-base-blog/about/` was built on 2024-03-07T14:17:34.537Z -->
+		<!-- This page `/eleventy-base-blog/about/` was built on 2024-10-25T15:02:48.973Z -->
+		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
 	</body>
 </html>
