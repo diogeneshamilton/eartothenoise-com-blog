@@ -1,11 +1,13 @@
 ---
-description: This is a post on My Blog about me.
-date: '2024-10-31T00:00:00.000Z'
-title: being a traditional software dev who embraces bubble and no code
-draft: true
+title: Why Bubble is a serious development option
+description: No code/low code options are usually shunned when making a custom
+  app. Here’s why Bubble might be better than getting someone to code your app.
+date: 2025-01-13
+draft: "true"
 ---
+My cofounder Aaron and I frequently find ourselves telling people why we chose Bubble to build realnice, and why they should seriously consider it.
 
-Let me tell you about why I love no code, but don’t explicitly do one or the other. 
+
 
 Here’s some code: 
 
