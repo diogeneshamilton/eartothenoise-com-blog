@@ -1,8 +1,9 @@
 export default {
-	title: "eartothenoise blog",
+	title: "Matt Hamilton's blog",
 	url: "https://eartothenoise.com/blog",
 	language: "en",
-	description: "I am writing about my experiences",
+	description:
+		"Writing about stuff I've built, am working on, or am interested in.",
 	author: {
 		name: "Matt Hamilton",
 		email: "diogeneshamilton@gmail.com",

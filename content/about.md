@@ -1,10 +1,9 @@
----js
-const eleventyNavigation = {
-	key: "About Me",
-	order: 3,
-    url: "https://eartothenoise.com",
-    permalink: false
-};
+---
+eleventyNavigation:
+  key: "About Me (my website)"
+  order: 3
+  url: "https://eartothenoise.com"
+  permalink: false
 ---
 # About
 

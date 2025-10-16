@@ -7,7 +7,7 @@
 		"build": "tinacms build && npx @11ty/eleventy",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
 		"build-ghpages": "npx @11ty/eleventy",
-		"start": "npx tinacms dev && npx @11ty/eleventy --serve --quiet",
+		"start": "npx tinacms dev && npx @11ty/eleventy --serve",
 		"start-ghpages": "npx @11ty/eleventy --serve --quiet",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
@@ -35,20 +35,21 @@
 	},
 	"homepage": "https://github.com/diogeneshamilton/eartothenoise-com-blog#readme",
 	"devDependencies": {
-		"@11ty/eleventy": "^3.0.0",
+		"@11ty/eleventy": "^3.1.2",
 		"@11ty/eleventy-img": "^5.0.0",
 		"@11ty/eleventy-navigation": "^0.3.5",
-		"@11ty/eleventy-plugin-rss": "^2.0.2",
-		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-		"@tinacms/cli": "^1.6.11",
-		"@types/node": "^22.8.5",
+		"@11ty/eleventy-plugin-rss": "^2.0.4",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+		"@tinacms/cli": "^1.11.0",
+		"@types/node": "^22.18.9",
 		"cross-env": "^7.0.3",
-		"luxon": "^3.5.0",
-		"zod": "^3.23.8",
-		"zod-validation-error": "^3.3.1"
+		"luxon": "^3.7.2",
+		"prismjs": "^1.30.0",
+		"zod": "^3.25.76",
+		"zod-validation-error": "^3.5.3"
 	},
 	"dependencies": {
-		"@zachleat/heading-anchors": "^1.0.1",
-		"tinacms": "^2.4.0"
+		"@zachleat/heading-anchors": "^1.0.5",
+		"tinacms": "^2.9.0"
 	}
 }
