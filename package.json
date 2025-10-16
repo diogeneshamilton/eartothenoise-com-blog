@@ -40,7 +40,6 @@
 		"@11ty/eleventy-navigation": "^0.3.5",
 		"@11ty/eleventy-plugin-rss": "^2.0.4",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-		"@tinacms/cli": "^1.11.0",
 		"@types/node": "^22.18.9",
 		"cross-env": "^7.0.3",
 		"luxon": "^3.7.2",
@@ -49,7 +48,6 @@
 		"zod-validation-error": "^3.5.3"
 	},
 	"dependencies": {
-		"@zachleat/heading-anchors": "^1.0.5",
-		"tinacms": "^2.9.0"
+		"@zachleat/heading-anchors": "^1.0.5"
 	}
 }

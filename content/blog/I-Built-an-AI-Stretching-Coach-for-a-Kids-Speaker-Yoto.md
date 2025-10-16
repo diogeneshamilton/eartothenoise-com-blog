@@ -2,9 +2,10 @@
 title: I Built an AI Stretching Coach for a Kids' Speaker (Yoto)
 date: 2025-10-10T00:00:00.000Z
 draft: false
+permalink: /b/daily-stretch/
 ---
 
-Last month Yoto announced a developer challenge for their screen-free audio player, and I thought "why not?"
+Last month [Yoto announced a developer challenge](https://yoto.space/news/post/build-a-yoto-app-and-you-could-win-up-to-5-000-hQVNmKqCsfLNoj0) for their screen-free audio player, and I thought "why not?"
 
 So I built [Daily Stretch](https://share.yoto.co/s/4HiAP3hhZ0gKb0wrmsPAp3) - an app that generates a fresh stretching routine every single day. No screens, just audio guiding you through 5-10 minutes of movement.
 
