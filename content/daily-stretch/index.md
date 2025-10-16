@@ -3,14 +3,15 @@ title: I Built an AI Stretching Coach for a Kids' Speaker (Yoto)
 date: 2025-10-10T00:00:00.000Z
 draft: false
 permalink: /daily-stretch/
-tags: ["posts"]
+tags: posts
+layout: "layouts/post.njk"
 ---
 
 Last month [Yoto announced a developer challenge](https://yoto.space/news/post/build-a-yoto-app-and-you-could-win-up-to-5-000-hQVNmKqCsfLNoj0) for their screen-free audio player, and I thought "why not?"
 
 So I built [Daily Stretch](https://share.yoto.co/s/4HiAP3hhZ0gKb0wrmsPAp3) - an app that generates a fresh stretching routine every single day. No screens, just audio guiding you through 5-10 minutes of movement.
 
-![](/img/Nlt0MCg5QQmrlh9Rx90qb.avif)
+![](./Nlt0MCg5QQmrlh9Rx90qb.avif)
 
 ## The Setup
 
@@ -34,7 +35,7 @@ It took a few iterations to get the prompt right. I had to be really specific ab
 
 Turns out there's a big difference between "generating a list of stretches" and "creating an audio experience that feels natural."
 
-![](/img/YotoStore.png)
+![](./YotoStore.png)
 
 ## What's Next
 
