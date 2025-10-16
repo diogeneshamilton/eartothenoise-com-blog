@@ -4,10 +4,10 @@
 	"description": "My blog.",
 	"type": "module",
 	"scripts": {
-		"build": "tinacms build && npx @11ty/eleventy",
+		"build": "npx @11ty/eleventy",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
 		"build-ghpages": "npx @11ty/eleventy",
-		"start": "npx tinacms dev && npx @11ty/eleventy --serve",
+		"start": "npx @11ty/eleventy --serve",
 		"start-ghpages": "npx @11ty/eleventy --serve --quiet",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
