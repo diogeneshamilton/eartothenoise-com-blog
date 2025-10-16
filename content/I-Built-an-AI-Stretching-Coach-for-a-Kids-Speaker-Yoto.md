@@ -2,7 +2,8 @@
 title: I Built an AI Stretching Coach for a Kids' Speaker (Yoto)
 date: 2025-10-10T00:00:00.000Z
 draft: false
-permalink: /b/daily-stretch/
+permalink: /daily-stretch/
+tags: ["posts"]
 ---
 
 Last month [Yoto announced a developer challenge](https://yoto.space/news/post/build-a-yoto-app-and-you-could-win-up-to-5-000-hQVNmKqCsfLNoj0) for their screen-free audio player, and I thought "why not?"
