@@ -52,6 +52,89 @@ ogtype: article
 
 		{#- Add an arbitrary string to the bundle #}
 		{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
+		
+		{#- Add animated gradient background #}
+		{%- css %}
+		/* Animated gradient background */
+		@keyframes gradientShift {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+		
+		html {
+			background: linear-gradient(-45deg, #cad0ff, #e3e3e3, #d0d6ff, #e8e8e8, #c4caff, #dddddd, #b8c4ff, #d6d6d6);
+			background-size: 400% 400%;
+			animation: gradientShift 40s ease infinite;
+			min-height: 100vh;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			background: transparent;
+			background-color: transparent !important;
+			margin: 0;
+			padding: 0;
+		}
+		
+		/* Add semi-transparent background for content areas */
+		main {
+			background: rgba(255, 255, 255, 0.9);
+			backdrop-filter: blur(10px);
+			border-radius: 12px;
+			margin: 2rem auto;
+			padding: 2rem;
+			max-width: 40em;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+		}
+		
+		header {
+			background: rgba(255, 255, 255, 0.8);
+			backdrop-filter: blur(10px);
+			border-radius: 12px;
+			margin: 1rem 0;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+		}
+		
+		/* Dark mode gradient */
+		@media (prefers-color-scheme: dark) {
+			@keyframes gradientShiftDark {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+			
+			html {
+				background: linear-gradient(-45deg, #1a1f3a, #2d2d2d, #1f2440, #333333, #151a35, #2a2a2a) !important;
+				background-size: 300% 300% !important;
+				animation: gradientShiftDark 20s ease infinite !important;
+			}
+						
+			main {
+				background: rgba(21, 32, 43, 0.9);
+				backdrop-filter: blur(10px);
+			}
+			
+			header {
+				background: rgba(21, 32, 43, 0.8);
+				backdrop-filter: blur(10px);
+			}
+		}
+		{%- endcss %}
 		{#- Add the contents of a file to the bundle #}
 		{%- css %}{% include "public/css/index.css" %}{% endcss %}
 		{#- Or you can add from node_modules #}
