@@ -1,3 +1,7 @@
+---
+ogimage: ./content/img/default-og.png
+ogtype: article
+---
 <!doctype html>
 <html lang="{{ metadata.language }}">
 	<head>
@@ -13,8 +17,8 @@
 		<meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
 		<meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
 		<meta property="og:site_name" content="{{ metadata.title }}">
-		{%- if socialImage %}
-		<meta property="og:image" content="{{ metadata.url }}{{ socialImage }}">
+		{%- if socialImage or ogimage %}
+		<meta property="og:image" content="{% makeOGImg socialImage or ogimage, metadata.url %}">
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
 		{%- endif %}
@@ -26,11 +30,11 @@
 		{%- endif %}
 
 		{#- Twitter Card Tags #}
-		<meta name="twitter:card" content="{% if socialImage %}summary_large_image{% else %}summary{% endif %}">
+		<meta name="twitter:card" content="{% if socialImage or ogimage %}summary_large_image{% else %}summary{% endif %}">
 		<meta name="twitter:title" content="{{ title or metadata.title }}">
 		<meta name="twitter:description" content="{{ description or metadata.description }}">
-		{%- if socialImage %}
-		<meta name="twitter:image" content="{{ metadata.url }}{{ socialImage }}">
+		{%- if socialImage or ogimage %}
+		<meta name="twitter:image" content="{% makeOGImg socialImage or ogimage, metadata.url %}">
 		{%- endif %}
 
 		 <meta name="generator" content="{{ eleventy.generator }}"> 

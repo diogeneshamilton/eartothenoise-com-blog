@@ -5,8 +5,8 @@ draft: false
 permalink: /daily-stretch/
 tags: posts
 layout: "layouts/post.njk"
-description: "Built Daily Stretch - an AI app that generates fresh stretching routines every day for Yoto players. Uses Claude for scripts and Gemini for text-to-speech, creating natural audio experiences."
-socialImage: "/daily-stretch/Nlt0MCg5QQmrlh9Rx90qb.avif"
+description: "Built Daily Stretch - an AI app that generates fresh stretching routines daily for Yoto players. Uses Claude for scripts and Gemini for text-to-speech."
+ogimage: "./content/daily-stretch/Nlt0MCg5QQmrlh9Rx90qb.avif"
 ---
 
 Last month [Yoto announced a developer challenge](https://yoto.space/news/post/build-a-yoto-app-and-you-could-win-up-to-5-000-hQVNmKqCsfLNoj0) for their screen-free audio player, and I thought "why not?"
