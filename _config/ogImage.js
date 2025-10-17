@@ -16,7 +16,7 @@ export default function (eleventyConfig) {
 			.toString(36)
 			.substr(2, 9)}.jpeg`;
 		const outputPath = `./_site/img/og/${filename}`;
-		const urlPath = `${siteUrl}img/og/${filename}`;
+		const urlPath = `${siteUrl}/img/og/${filename}`;
 
 		// Use Sharp directly to force exact 1200x630 dimensions
 		await sharp(src)
