@@ -135,6 +135,54 @@ ogtype: article
 			}
 		}
 		{%- endcss %}
+		
+		{#- Autumn Leaves Animation Overlay #}
+		{%- css %}
+		/* Autumn Leaves Overlay */
+		#autumn-leaves-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: 9999;
+			overflow: hidden;
+		}
+		
+		.autumn-leaf {
+			position: absolute;
+			pointer-events: none;
+			opacity: 0;
+			will-change: transform, opacity;
+		}
+		
+		/* Leaf fade in and fall animation */
+		@keyframes leafFall {
+			0% {
+				opacity: 0;
+				transform: translateY(-10vh) rotate(0deg);
+			}
+			10% {
+				opacity: 0.8;
+			}
+			100% {
+				opacity: 0;
+				transform: translateY(110vh) rotate(720deg);
+			}
+		}
+		
+		/* Subtle horizontal drift */
+		@keyframes leafDrift {
+			0%, 100% {
+				transform: translateX(0);
+			}
+			50% {
+				transform: translateX(30px);
+			}
+		}
+		{%- endcss %}
+		
 		{#- Add the contents of a file to the bundle #}
 		{%- css %}{% include "public/css/index.css" %}{% endcss %}
 		{#- Or you can add from node_modules #}
@@ -149,6 +197,9 @@ ogtype: article
 		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 	</head>
 	<body>
+		{#- Autumn Leaves Overlay Container #}
+		<div id="autumn-leaves-container" aria-hidden="true"></div>
+		
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
@@ -177,5 +228,90 @@ ogtype: article
 
 		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+		
+		{#- Autumn Leaves Animation Script #}
+		<script>
+		(function() {
+			// Autumn leaf colors (orange, red, yellow, brown tones)
+			const leafColors = [
+				'#D2691E', // Chocolate
+				'#FF8C00', // Dark orange
+				'#CD853F', // Peru
+				'#DAA520', // Goldenrod
+				'#B8860B', // Dark goldenrod
+				'#8B4513', // Saddle brown
+				'#A0522D', // Sienna
+				'#FF6347', // Tomato
+				'#FFA500', // Orange
+				'#FFD700'  // Gold
+			];
+			
+			// SVG leaf shape
+			function createLeafSVG(color, size) {
+				return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${color}" xmlns="http://www.w3.org/2000/svg">
+					<path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
+				</svg>`;
+			}
+			
+			// Create a single leaf element
+			function createLeaf() {
+				const container = document.getElementById('autumn-leaves-container');
+				if (!container) return;
+				
+				const leaf = document.createElement('div');
+				leaf.className = 'autumn-leaf';
+				
+				// Random properties for variety
+				const size = Math.random() * 15 + 10; // 10-25px
+				const startX = Math.random() * 100; // 0-100% of viewport width
+				const duration = Math.random() * 15 + 15; // 15-30 seconds
+				const driftDuration = Math.random() * 3 + 2; // 2-5 seconds
+				const delay = Math.random() * 5; // 0-5 seconds delay
+				const color = leafColors[Math.floor(Math.random() * leafColors.length)];
+				
+				// Set leaf properties
+				leaf.innerHTML = createLeafSVG(color, size);
+				leaf.style.left = `${startX}%`;
+				leaf.style.animation = `leafFall ${duration}s linear ${delay}s forwards, leafDrift ${driftDuration}s ease-in-out ${delay}s infinite`;
+				
+				// Add leaf to container
+				container.appendChild(leaf);
+				
+				// Remove leaf after animation completes
+				setTimeout(() => {
+					leaf.remove();
+				}, (duration + delay) * 1000);
+			}
+			
+			// Start the animation when page loads
+			function initializeLeaves() {
+				// Create initial batch of leaves
+				const initialLeaves = 8;
+				for (let i = 0; i < initialLeaves; i++) {
+					setTimeout(() => createLeaf(), i * 2000); // Stagger initial leaves
+				}
+				
+				// Continue creating leaves periodically (event-driven: based on interval completion)
+				let leafCount = 0;
+				const maxLeaves = 30; // Limit total leaves created
+				
+				const leafInterval = setInterval(() => {
+					if (leafCount >= maxLeaves) {
+						clearInterval(leafInterval);
+						return;
+					}
+					createLeaf();
+					leafCount++;
+				}, 3000); // New leaf every 3 seconds
+			}
+			
+			// Initialize on page load
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initializeLeaves);
+			} else {
+				initializeLeaves();
+			}
+		})();
+		</script>
 	</body>
 </html>
