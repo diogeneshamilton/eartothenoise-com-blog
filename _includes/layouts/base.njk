@@ -135,6 +135,10 @@ ogtype: article
 			}
 		}
 		{%- endcss %}
+		
+		{#- Autumn Leaves Animation Overlay (fall season only) #}
+		{%- css %}{% include "public/css/autumn-leaves.css" %}{% endcss %}
+		
 		{#- Add the contents of a file to the bundle #}
 		{%- css %}{% include "public/css/index.css" %}{% endcss %}
 		{#- Or you can add from node_modules #}
@@ -149,6 +153,9 @@ ogtype: article
 		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 	</head>
 	<body>
+		{#- Autumn Leaves Overlay Container #}
+		<div id="autumn-leaves-container" aria-hidden="true"></div>
+		
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
@@ -175,7 +182,10 @@ ogtype: article
 			<p><em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em></p>
 		</footer>
 
-		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
-		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+	<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+	<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+	
+	{#- Autumn Leaves Animation Script (fall season only) #}
+	<script src="/js/autumn-leaves.js"></script>
 	</body>
 </html>
