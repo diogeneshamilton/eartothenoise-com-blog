@@ -1,0 +1,85 @@
+name: Blog Uptime Monitor
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency:
+  group: uptime-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check both blog URLs
+        id: check
+        env:
+          URLS: https://blog.matthamilton.cloud/,https://blog.eartothenoise.com/
+        run: |
+          set -u
+          failed=""
+          for url in ${URLS//,/ }; do
+            url="${url%/}"
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 -L "$url" || echo "000")
+            if [[ "$code" != 2* && "$code" != 3* ]]; then
+              echo "DOWN: $url (http $code)"
+              failed="$failed $url(http=$code)"
+            else
+              echo "UP:   $url (http $code)"
+            fi
+          done
+          if [ -n "$failed" ]; then
+            echo "result=down" >> "$GITHUB_OUTPUT"
+            echo "failed=$failed" >> "$GITHUB_OUTPUT"
+          else
+            echo "result=up" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open issue on failure
+        if: steps.check.outputs.result == 'down'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FAILED: ${{ steps.check.outputs.failed }}
+        run: |
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --search "in:title \"Blog DOWN\"" --state open --json number -q '.[0].number' 2>/dev/null || echo "")
+          if [ -n "$existing" ]; then
+            echo "Alert issue #$existing already open; skipping (avoid spam)."
+            exit 0
+          fi
+          TIME=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
+          cat > /tmp/blog-down-body.md <<EOF
+          Blog is DOWN (detected by the uptime monitor).
+
+          Failing URLs: ${FAILED}
+
+          - Detected at: ${TIME}
+          - The blog is served by Caddy on a home Mac. Likely causes:
+            - Home network / router / ISP outage
+            - Home IP changed and DDNS did not update
+            - Mac powered off / asleep
+            - Caddy crashed (local watchdog should have restarted it)
+          - Check the Mac and Caddy; the monitor will auto-close this issue on recovery.
+          EOF
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Blog DOWN" \
+            --body-file /tmp/blog-down-body.md \
+            --label "uptime" \
+            || echo "Failed to open issue"
+
+      - name: Close issue on recovery
+        if: steps.check.outputs.result == 'up'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --search "in:title \"Blog DOWN\"" --state open --json number -q '.[0].number' 2>/dev/null || echo "")
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --repo "$GITHUB_REPOSITORY" --comment "Blog is back up. Closing automatically."
+            echo "Closed alert issue #$existing."
+          fi
